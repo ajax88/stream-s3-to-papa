@@ -1,0 +1,14 @@
+{
+  "name": "parse-from-s3",
+  "version": "1.0.0",
+  "description": "Reproduce issues streaming from S3 with PapaParse",
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.937.0",
+    "papaparse": "^5.3.1"
+  }
+}

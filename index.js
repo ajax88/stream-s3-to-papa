@@ -5,6 +5,7 @@ const S3_KEY = process.env.S3_KEY;
 const S3_SECRET = process.env.S3_SECRET;
 const S3_REGION = process.env.S3_REGION;
 const S3_BUCKET = process.env.S3_BUCKET;
+const CSV_KEY = process.env.CSV_KEY;
 
 const client = new AWS.S3({
   accessKeyId: S3_KEY,
@@ -19,7 +20,7 @@ const client = new AWS.S3({
 (async () => {
   const readStream = client
     .getObject({
-      Key: "LGxEq8LGZchB4rRFW/user-csv-uploads/W55Fsn7e2e4Josq8z.csv",
+      Key: CSV_KEY,
       Bucket: S3_BUCKET,
     })
     .createReadStream()
@@ -39,7 +40,7 @@ const client = new AWS.S3({
   const now = new Date().getTime();
 
   for await (const row of csvStream) {
-    await sleep(1000);
+    await sleep(300);
     console.log(numProcessed);
     numProcessed += 1;
   }
